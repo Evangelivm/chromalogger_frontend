@@ -17,8 +17,8 @@ import {
 } from "@/components/ui/sidebar";
 // This is sample data.
 
-import DrillingMonitor from "./drillingmonitor";
-import Navigation from "./navigation";
+import Dashboard from "./component";
+import Navigation from "../navigation";
 
 function Home() {
   return (
@@ -36,7 +36,7 @@ function Home() {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Monitor de Datos</BreadcrumbPage>
+                  <BreadcrumbPage>Monitor Grafico</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
@@ -44,7 +44,7 @@ function Home() {
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min">
-            <DrillingMonitor />
+            <Dashboard />
           </div>
           <div className="grid auto-rows-min gap-4 md:grid-cols-3">
             <div className="aspect-video rounded-xl bg-muted/50" />
