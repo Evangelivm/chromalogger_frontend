@@ -97,10 +97,10 @@ const data = {
           title: "Monitor Grafico",
           url: "/datagraph",
         },
-        // {
-        //   title: "Settings",
-        //   url: "#",
-        // },
+        {
+          title: "Indicadores",
+          url: "/meters",
+        },
       ],
     },
     {
@@ -112,62 +112,62 @@ const data = {
           title: "Generador de reportes",
           url: "#",
         },
-        {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
-        },
+        // {
+        //   title: "Explorer",
+        //   url: "#",
+        // },
+        // {
+        //   title: "Quantum",
+        //   url: "#",
+        // },
       ],
     },
     {
-      title: "Documentation",
+      title: "Alarmas",
       url: "#",
       icon: BookOpen,
       items: [
         {
-          title: "Introduction",
+          title: "Inventario",
           url: "#",
         },
         {
-          title: "Get Started",
+          title: "Programar Alarma",
           url: "#",
         },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
+        // {
+        //   title: "Tutorials",
+        //   url: "#",
+        // },
+        // {
+        //   title: "Changelog",
+        //   url: "#",
+        // },
       ],
     },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    },
+    // {
+    //   title: "Settings",
+    //   url: "#",
+    //   icon: Settings2,
+    //   items: [
+    //     {
+    //       title: "General",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Team",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Billing",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Limits",
+    //       url: "#",
+    //     },
+    //   ],
+    // },
   ],
   projects: [
     {
