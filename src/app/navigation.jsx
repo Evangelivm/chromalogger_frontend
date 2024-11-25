@@ -1,14 +1,12 @@
 "use client";
 import * as React from "react";
 import {
-  AudioWaveform,
   BadgeCheck,
   Bell,
   BookOpen,
   Bot,
   ChevronRight,
   ChevronsUpDown,
-  Command,
   CreditCard,
   Folder,
   Forward,
@@ -19,7 +17,6 @@ import {
   MoreHorizontal,
   PieChart,
   Plus,
-  Settings2,
   Sparkles,
   SquareTerminal,
   Trash2,

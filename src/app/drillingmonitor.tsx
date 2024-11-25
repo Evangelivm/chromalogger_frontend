@@ -154,7 +154,17 @@ function DrillingMonitor() {
   );
 }
 
-function MetricCard({ title, value, unit, icon }) {
+function MetricCard({
+  title,
+  value,
+  unit,
+  icon,
+}: {
+  title: string;
+  value: number;
+  unit: string;
+  icon: JSX.Element;
+}) {
   return (
     <Card className="bg-card border-border">
       <CardContent className="p-4">
@@ -171,7 +181,15 @@ function MetricCard({ title, value, unit, icon }) {
   );
 }
 
-function StatusCard({ title, value, unit }) {
+function StatusCard({
+  title,
+  value,
+  unit,
+}: {
+  title: string;
+  value: string | number; // value puede ser un string o número
+  unit: string;
+}) {
   return (
     <Card className="bg-muted border-border">
       <CardContent className="p-4">

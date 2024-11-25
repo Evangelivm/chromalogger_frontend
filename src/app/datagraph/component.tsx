@@ -27,7 +27,22 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Activity, Cpu, Thermometer } from "lucide-react";
 
-const generateRandomData = () => ({
+interface DataPoint {
+  time: string;
+  cpu: number;
+  memory: number;
+  temperature: number;
+  [key: string]: number | string;
+}
+
+interface MetricConfig {
+  label: string;
+  color: string;
+  icon: JSX.Element;
+  unit: string;
+}
+
+const generateRandomData = (): DataPoint => ({
   time: new Date().toLocaleTimeString(),
   cpu: Math.random() * 100,
   memory: Math.random() * 16,
@@ -35,7 +50,7 @@ const generateRandomData = () => ({
 });
 
 export default function Dashboard() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<DataPoint[]>([]);
   const [isReceiving, setIsReceiving] = useState(false);
   const [selectedMetric, setSelectedMetric] = useState("cpu");
   const [animatingIndex, setAnimatingIndex] = useState(-1);
@@ -43,8 +58,8 @@ export default function Dashboard() {
   const addData = useCallback(() => {
     setData((currentData) => {
       const newData = [...currentData, generateRandomData()];
-      if (newData.length > 20) newData.shift();
-      setAnimatingIndex(newData.length - 1);
+      if (newData.length > 20) newData.shift(); // Mantiene solo los últimos 20 puntos
+      setAnimatingIndex(newData.length - 1); // Actualiza el índice de animación
       return newData;
     });
   }, []);
@@ -61,7 +76,7 @@ export default function Dashboard() {
     setIsReceiving(!isReceiving);
   };
 
-  const metricConfig: any = {
+  const metricConfig: Record<string, MetricConfig> = {
     cpu: {
       label: "Uso de CPU",
       color: "hsl(152, 100%, 50%)",
@@ -142,7 +157,12 @@ export default function Dashboard() {
                 />
                 <Tooltip
                   content={({ active, payload }) => {
-                    if (active && payload && payload.length) {
+                    if (
+                      active &&
+                      payload &&
+                      payload.length > 0 &&
+                      typeof payload[0].value === "number"
+                    ) {
                       return (
                         <div className="rounded-lg border bg-background p-2 shadow-sm text-xs sm:text-sm">
                           <div className="grid grid-cols-2 gap-2">
@@ -170,6 +190,7 @@ export default function Dashboard() {
                     return null;
                   }}
                 />
+
                 <Line
                   type="monotone"
                   dataKey={selectedMetric}
@@ -216,7 +237,9 @@ export default function Dashboard() {
                   </div>
                   <span className="text-sm">
                     {data.length > 0
-                      ? `${data[data.length - 1][key].toFixed(2)} ${unit}`
+                      ? `${(data[data.length - 1] as any)[
+                          key as keyof DataPoint
+                        ].toFixed(2)} ${unit}`
                       : "N/A"}
                   </span>
                 </div>
