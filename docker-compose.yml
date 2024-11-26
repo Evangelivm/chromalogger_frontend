@@ -1,12 +1,17 @@
 services:
-  frontend:
+  app:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3001:3001" # Mapea el puerto 3001 del contenedor al host
+      - "3000:3000"
     environment:
-      - PORT=3001 # Asegúrate de que Next.js use este puerto
+      NODE_ENV: production
+      PORT: 3000
+      HOSTNAME: 0.0.0.0
     volumes:
-      - .:/app # Opcional: Para desarrollo, monta el código local en el contenedor
-    command: npm run start
+      # Montar solo carpetas específicas si necesitas desarrollo en caliente
+      # Si no necesitas hot-reloading, elimina esta sección
+      - ./public:/app/public
+      - ./static:/app/.next/static
+    restart: unless-stopped
