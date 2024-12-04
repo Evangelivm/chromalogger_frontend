@@ -19,8 +19,10 @@ import {
 
 import Dashboard from "./component";
 import Navigation from "../navigation";
+import { useSession } from "next-auth/react";
 
 function Home() {
+  const { data: session, status } = useSession();
   return (
     <SidebarProvider>
       <Navigation />

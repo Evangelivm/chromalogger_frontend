@@ -23,3 +23,12 @@ docker compose up --build
 ```
 
 Cabe mencionar que se está usando la versión 2 de Docker Compose, la cual no requiere el uso del comando `docker-compose`.
+
+```bash
+// next.config.js
+module.exports = {
+output: "standalone",
+};
+```
+
+Asimismo, se debe quitar el comentario, en el standalone, ya se que se necesitara en el build

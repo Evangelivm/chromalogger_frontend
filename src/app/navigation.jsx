@@ -55,6 +55,8 @@ import {
   SidebarMenuSubItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { useSession } from "next-auth/react";
+
 // This is sample data.
 const data = {
   user: {
@@ -119,29 +121,29 @@ const data = {
         // },
       ],
     },
-    {
-      title: "Alarmas",
-      url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Inventario",
-          url: "#",
-        },
-        {
-          title: "Programar Alarma",
-          url: "#",
-        },
-        // {
-        //   title: "Tutorials",
-        //   url: "#",
-        // },
-        // {
-        //   title: "Changelog",
-        //   url: "#",
-        // },
-      ],
-    },
+    // {
+    //   title: "Alarmas",
+    //   url: "#",
+    //   icon: BookOpen,
+    //   items: [
+    //     {
+    //       title: "Inventario",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Programar Alarma",
+    //       url: "#",
+    //     },
+    //     // {
+    //     //   title: "Tutorials",
+    //     //   url: "#",
+    //     // },
+    //     // {
+    //     //   title: "Changelog",
+    //     //   url: "#",
+    //     // },
+    //   ],
+    // },
     // {
     //   title: "Settings",
     //   url: "#",
@@ -166,23 +168,23 @@ const data = {
     //   ],
     // },
   ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
-    },
-  ],
+  // projects: [
+  //   {
+  //     name: "Design Engineering",
+  //     url: "#",
+  //     icon: Frame,
+  //   },
+  //   {
+  //     name: "Sales & Marketing",
+  //     url: "#",
+  //     icon: PieChart,
+  //   },
+  //   {
+  //     name: "Travel",
+  //     url: "#",
+  //     icon: Map,
+  //   },
+  // ],
 };
 
 function Navigation() {
@@ -220,7 +222,7 @@ function Navigation() {
                   sideOffset={4}
                 >
                   <DropdownMenuLabel className="text-xs text-muted-foreground">
-                    Pozos
+                    Pozos Disponibles
                   </DropdownMenuLabel>
                   {data.oil_wells.map((team, index) => (
                     <DropdownMenuItem
@@ -235,7 +237,7 @@ function Navigation() {
                       <DropdownMenuShortcut>⌘{index + 1}</DropdownMenuShortcut>
                     </DropdownMenuItem>
                   ))}
-                  <DropdownMenuSeparator />
+                  {/* <DropdownMenuSeparator />
                   <DropdownMenuItem className="gap-2 p-2">
                     <div className="flex size-6 items-center justify-center rounded-md border bg-background">
                       <Plus className="size-4" />
@@ -243,7 +245,7 @@ function Navigation() {
                     <div className="font-medium text-muted-foreground">
                       Add team
                     </div>
-                  </DropdownMenuItem>
+                  </DropdownMenuItem> */}
                 </DropdownMenuContent>
               </DropdownMenu>
             </SidebarMenuItem>
@@ -286,7 +288,7 @@ function Navigation() {
               ))}
             </SidebarMenu>
           </SidebarGroup>
-          <SidebarGroup className="group-data-[collapsible=icon]:hidden">
+          {/* <SidebarGroup className="group-data-[collapsible=icon]:hidden">
             <SidebarGroupLabel>Projects</SidebarGroupLabel>
             <SidebarMenu>
               {data.projects.map((item) => (
@@ -333,7 +335,7 @@ function Navigation() {
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
-          </SidebarGroup>
+          </SidebarGroup> */}
         </SidebarContent>
         <SidebarFooter>
           <SidebarMenu>
@@ -349,7 +351,7 @@ function Navigation() {
                         src={data.user.avatar}
                         alt={data.user.name}
                       />
-                      <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                      <AvatarFallback className="rounded-lg">US</AvatarFallback>
                     </Avatar>
                     <div className="grid flex-1 text-left text-sm leading-tight">
                       <span className="truncate font-semibold">
@@ -376,7 +378,7 @@ function Navigation() {
                           alt={data.user.name}
                         />
                         <AvatarFallback className="rounded-lg">
-                          CN
+                          US
                         </AvatarFallback>
                       </Avatar>
                       <div className="grid flex-1 text-left text-sm leading-tight">
@@ -390,14 +392,14 @@ function Navigation() {
                     </div>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuGroup>
+                  {/* <DropdownMenuGroup>
                     <DropdownMenuItem>
                       <Sparkles />
                       Upgrade to Pro
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuGroup>
+                  <DropdownMenuSeparator /> */}
+                  {/* <DropdownMenuGroup>
                     <DropdownMenuItem>
                       <BadgeCheck />
                       Account
@@ -410,11 +412,11 @@ function Navigation() {
                       <Bell />
                       Notifications
                     </DropdownMenuItem>
-                  </DropdownMenuGroup>
-                  <DropdownMenuSeparator />
+                  </DropdownMenuGroup> */}
+                  {/* <DropdownMenuSeparator /> */}
                   <DropdownMenuItem>
                     <LogOut />
-                    Cerrar Sesion
+                    Sign Out
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
