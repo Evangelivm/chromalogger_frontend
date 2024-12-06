@@ -66,17 +66,17 @@ function DrillingMonitor() {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
               <CardTitle className="text-xl sm:text-2xl">
-                Monitor de Datos de Perforación
+                Drilling Data Monitor
               </CardTitle>
               <CardDescription className="text-sm">
-                Datos en tiempo real (simulados)
+                Real-time Data
               </CardDescription>
             </div>
             <Badge
               variant="outline"
               className="bg-secondary text-secondary-foreground"
             >
-              En Operación
+              In Operation
             </Badge>
           </div>
         </CardHeader>
@@ -128,24 +128,36 @@ function DrillingMonitor() {
             <StatusCard
               title="Strokes Per Minute 1"
               value={metrics.strokesPerMinute1}
-              unit="klb"
+              unit="Stk/Min"
             />
             <StatusCard
               title="Strokes Per Minute 2"
               value={metrics.strokesPerMinute2}
-              unit="m/hr"
+              unit="Stk/Min"
             />
             <StatusCard title="Slips" value={metrics.slips} unit="" />
             <StatusCard title="On Bottom" value={metrics.onBottom} unit="" />
-            <StatusCard title="Strokes (Total)" value="891" unit="stks" />
-            <StatusCard title="Strokes 1" value="0" unit="stks" />
-            <StatusCard title="Strokes 2" value="0" unit="stks" />
+            {/* <StatusCard title="Strokes (Total)" value="891" unit="stks" /> */}
+            <StatusCard
+              title="Strokes 1"
+              value={metrics.strokesPerMinute1}
+              unit="stks"
+            />
+            <StatusCard
+              title="Strokes 2"
+              value={metrics.strokesPerMinute1}
+              unit="stks"
+            />
+            <StatusCard
+              title="Well Volume"
+              value={metrics.wellVolume}
+              unit="m³"
+            />
+            {/* <StatusCard title="Volumen del Pozo" value="500" unit="m³" />
+            <StatusCard title="Volumen del Pozo" value="500" unit="m³" /> */}
+            {/* <StatusCard title="Torque" value="0" unit="ft-lbs" />
             <StatusCard title="Volumen del Pozo" value="500" unit="m³" />
-            <StatusCard title="Volumen del Pozo" value="500" unit="m³" />
-            <StatusCard title="Volumen del Pozo" value="500" unit="m³" />
-            <StatusCard title="Torque" value="0" unit="ft-lbs" />
-            <StatusCard title="Volumen del Pozo" value="500" unit="m³" />
-            <StatusCard title="Volumen del Pozo" value="500" unit="m³" />
+            <StatusCard title="Volumen del Pozo" value="500" unit="m³" /> */}
             <StatusCard title="Torque" value={metrics.torque} unit="ft-lbs" />
           </div>
         </CardContent>

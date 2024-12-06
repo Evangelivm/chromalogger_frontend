@@ -32,11 +32,11 @@ function Home() {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">Monitores</BreadcrumbLink>
+                  <BreadcrumbLink href="#">Monitors</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Monitor de Datos</BreadcrumbPage>
+                  <BreadcrumbPage>Data Monitor</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>

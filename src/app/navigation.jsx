@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import { signOut } from "next-auth/react";
 import {
   BadgeCheck,
   Bell,
@@ -83,44 +84,44 @@ const data = {
   ],
   navMain: [
     {
-      title: "Monitores",
+      title: "Monitors",
       url: "#",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
-          title: "Monitor de Datos",
+          title: "Data Monitor",
           url: "/",
         },
-        {
-          title: "Monitor Grafico",
-          url: "/datagraph",
-        },
-        {
-          title: "Indicadores",
-          url: "/meters",
-        },
-      ],
-    },
-    {
-      title: "Reportes",
-      url: "#",
-      icon: Bot,
-      items: [
-        {
-          title: "Generador de reportes",
-          url: "#",
-        },
         // {
-        //   title: "Explorer",
-        //   url: "#",
+        //   title: "Graphic Monitor",
+        //   url: "/datagraph",
         // },
         // {
-        //   title: "Quantum",
-        //   url: "#",
+        //   title: "Indicadores",
+        //   url: "/meters",
         // },
       ],
     },
+    // {
+    //   title: "Reportes",
+    //   url: "#",
+    //   icon: Bot,
+    //   items: [
+    //     {
+    //       title: "Generador de reportes",
+    //       url: "#",
+    //     },
+    //     // {
+    //     //   title: "Explorer",
+    //     //   url: "#",
+    //     // },
+    //     // {
+    //     //   title: "Quantum",
+    //     //   url: "#",
+    //     // },
+    //   ],
+    // },
     // {
     //   title: "Alarmas",
     //   url: "#",
@@ -414,7 +415,7 @@ function Navigation() {
                     </DropdownMenuItem>
                   </DropdownMenuGroup> */}
                   {/* <DropdownMenuSeparator /> */}
-                  <DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => signOut()}>
                     <LogOut />
                     Sign Out
                   </DropdownMenuItem>
